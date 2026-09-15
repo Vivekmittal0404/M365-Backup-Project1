@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  * {
+    @apply border-ink-line;
+  }
+  ::selection {
+    @apply bg-vault-teal/20;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #1b6b73;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .field {
+    @apply w-full bg-transparent border-b border-ink-line/40 px-1 py-2 text-[15px]
+      placeholder:text-ink/35 focus:border-vault-teal transition-colors;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-2.5
+      text-[14px] tracking-wide hover:bg-vault-tealDeep transition-colors disabled:opacity-40
+      disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-ink-line/50 px-5 py-2.5
+      text-[14px] tracking-wide hover:border-ink transition-colors disabled:opacity-40
+      disabled:pointer-events-none;
+  }
+  .ledger-table {
+    @apply w-full text-left text-[14px] border-collapse;
+  }
+  .ledger-table th {
+    @apply text-[12px] font-normal text-ink/50 border-b border-ink-line/60 pb-2 pr-4 font-mono;
+  }
+  .ledger-table td {
+    @apply border-b border-ink-line/20 py-3 pr-4 align-top;
+  }
+  .num {
+    @apply font-mono text-[13px] tabular-nums;
+  }
+}
